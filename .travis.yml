@@ -13,7 +13,9 @@ matrix:
             - gcc-4.9
             - g++-4.9
         artifacts: true
-      env: COMPILER=g++-4.9
+      env:
+        - COMPILER=g++-4.9
+        - CFLAGS="-ftest-coverage"
     - compiler: gcc
       addons:
         apt:
@@ -23,7 +25,9 @@ matrix:
             - gcc-5
             - g++-5
         artifacts: true
-      env: COMPILER=g++-5
+      env:
+        - COMPILER=g++-5
+        - CFLAGS="-ftest-coverage"
 
 before_install:
   - sudo apt-get update -qq
@@ -44,7 +48,7 @@ before_install:
 
 script:
   - ./bootstrap.sh -a
-  - ./configure --enable-code-coverage
+  - ./configure
   - make
   - make test
 
