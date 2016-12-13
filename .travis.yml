@@ -15,7 +15,7 @@ matrix:
         artifacts: true
       env:
         - COMPILER=g++-4.9
-        - CFLAGS="-ftest-coverage"
+        - CXXFLAGS="-ftest-coverage"
     - compiler: gcc
       addons:
         apt:
@@ -27,7 +27,7 @@ matrix:
         artifacts: true
       env:
         - COMPILER=g++-5
-        - CFLAGS="-ftest-coverage"
+        - CXXFLAGS="-ftest-coverage"
 
 before_install:
   - sudo apt-get update -qq
